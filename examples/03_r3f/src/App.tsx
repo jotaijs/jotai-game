@@ -85,12 +85,24 @@ const App = () => {
   return (
     <div>
       <div style={{ marginLeft: 90 }}>
-        <button
-          type="button"
-          onClick={() => setMode(mode === 'normal' ? 'transient' : 'normal')}
-        >
-          {mode}
-        </button>
+        <label htmlFor="normal">
+          <input
+            type="radio"
+            value="normal"
+            checked={mode === 'normal'}
+            onChange={() => setMode('normal')}
+          />
+          Normal Mode
+        </label>
+        <label htmlFor="transient">
+          <input
+            type="radio"
+            value="transient"
+            checked={mode === 'transient'}
+            onChange={() => setMode('transient')}
+          />
+          Transient Mode
+        </label>
       </div>
       <Canvas>
         <Main mode={mode} boxes={mainBoxes} />
