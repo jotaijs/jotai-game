@@ -85,8 +85,9 @@ const App = () => {
   return (
     <div>
       <div style={{ marginLeft: 90 }}>
-        <label htmlFor="normal">
+        <label htmlFor="radio-normal">
           <input
+            id="radio-normal"
             type="radio"
             value="normal"
             checked={mode === 'normal'}
@@ -94,8 +95,9 @@ const App = () => {
           />
           Normal Mode
         </label>
-        <label htmlFor="transient">
+        <label htmlFor="radio-transient">
           <input
+            id="radio-transient"
             type="radio"
             value="transient"
             checked={mode === 'transient'}
