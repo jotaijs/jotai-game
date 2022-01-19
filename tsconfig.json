@@ -15,8 +15,7 @@
     "paths": {
       "jotai-game": ["./src"]
     },
-    "outDir": "./dist"
-  },
-  "include": ["src/**/*", "__tests__/**/*"],
-  "exclude": ["node_modules", "dist"]
+    "outDir": "./dist",
+    "skipLibCheck": true
+  }
 }
