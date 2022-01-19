@@ -11,6 +11,7 @@
     "jotai": "latest",
     "jotai-game": "latest",
     "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "three": "latest",
     "typescript": "latest"
