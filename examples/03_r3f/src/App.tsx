@@ -9,9 +9,9 @@ type Box = {
   position: [number, number];
 };
 
-const mainBoxes: Box[] = Array.from(Array(900).keys()).map((i) => ({
+const mainBoxes: Box[] = Array.from(Array(1800).keys()).map((i) => ({
   id: i,
-  position: [6 * Math.random() - 3, 6 * Math.random() - 3],
+  position: [8 * Math.random() - 4, 8 * Math.random() - 4],
 }));
 
 const offsetAtom = atom([0, 0]);
