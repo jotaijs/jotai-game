@@ -15,7 +15,6 @@
     "paths": {
       "jotai-game": ["./src"]
     },
-    "outDir": "./dist",
-    "skipLibCheck": true
+    "outDir": "./dist"
   }
 }
