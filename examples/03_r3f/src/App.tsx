@@ -14,7 +14,7 @@ const mainBoxes: Box[] = Array.from(Array(1800).keys()).map((i) => ({
   position: [8 * Math.random() - 4, 8 * Math.random() - 4],
 }));
 
-const offsetAtom = atom([0, 0]);
+const offsetAtom = atom<readonly [number, number]>([0, 0]);
 
 const NormalBox = ({ box }: { box: Box }) => {
   const { position } = box;
