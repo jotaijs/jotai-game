@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useStore } from 'jotai/react';
 import type { Atom, WritableAtom } from 'jotai/vanilla';
 
@@ -27,18 +27,14 @@ export function useTransientAtom<Value, Args extends unknown[], Result>(
 ) {
   const store = useStore(options);
 
-  const atomValueRef = useRef<Value>(store.get(atom));
-
   useEffect(() => {
-    const callback = () => {
-      atomValueRef.current = store.get(atom);
-    };
-    const unsubscribe = store.sub(atom, callback);
-    callback();
+    const unsubscribe = store.sub(atom, () => {
+      // empty
+    });
     return unsubscribe;
   }, [store, atom]);
 
-  const getAtom = useCallback(() => atomValueRef.current, []);
+  const getAtom = useCallback(() => store.get(atom), [store, atom]);
 
   const setAtom = useCallback(
     (...args: Args) => {
