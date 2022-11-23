@@ -1,6 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const ele = document.getElementById('app');
+if (!ele) {
+  throw new Error('no element found');
+}
+createRoot(ele).render(<App />);

@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { atom } from 'jotai';
 import { useTransientAtom } from 'jotai-game';
 
@@ -29,4 +29,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+createRoot(document.getElementById('app')).render(<App />);
