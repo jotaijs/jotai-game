@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
-import { atom } from 'jotai';
+import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from 'jotai-game';
 
 const countAtom = atom(0);

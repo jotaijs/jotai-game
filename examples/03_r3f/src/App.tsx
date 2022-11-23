@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { atom, useAtom } from 'jotai';
-import { useUpdateAtom } from 'jotai/utils';
+import { useAtom, useSetAtom } from 'jotai/react';
+import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from 'jotai-game';
 
 type Box = {
@@ -61,7 +61,7 @@ const Main = ({
   mode: 'normal' | 'transient';
   boxes: Box[];
 }) => {
-  const setOffset = useUpdateAtom(offsetAtom);
+  const setOffset = useSetAtom(offsetAtom);
   useFrame(({ mouse }) => {
     setOffset([mouse.x * 6, mouse.y * 2]);
   });
