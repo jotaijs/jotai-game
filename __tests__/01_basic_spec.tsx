@@ -1,8 +1,6 @@
-/* eslint quotes: off */
-
 import { fireEvent, render } from '@testing-library/react';
 import React, { useReducer } from 'react';
-import { atom } from 'jotai';
+import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from '../src/index';
 
 describe('useTransientAtom spec', () => {
