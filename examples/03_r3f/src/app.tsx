@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import type { Mesh } from 'three';
 import { useAtom, useSetAtom } from 'jotai/react';
 import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from 'jotai-game';
@@ -21,7 +22,7 @@ const offsetAtom = atom<readonly [number, number]>([0, 0]);
 const NormalBox = ({ box }: { box: Box }) => {
   const { position } = box;
   const [offset] = useAtom(offsetAtom);
-  const mesh = useRef<any>();
+  const mesh = useRef<Mesh>(null!);
   useFrame(() => {
     mesh.current.rotation.x += 0.01;
     mesh.current.rotation.y += 0.01;
@@ -31,7 +32,7 @@ const NormalBox = ({ box }: { box: Box }) => {
       position={[position[0] + offset[0], position[1] + offset[1], 0]}
       ref={mesh}
     >
-      <boxBufferGeometry attach="geometry" args={[0.2, 0.2, 0.2]} />
+      <boxGeometry attach="geometry" args={[0.2, 0.2, 0.2]} />
       <meshStandardMaterial attach="material" color="darkblue" />
     </mesh>
   );
@@ -40,7 +41,7 @@ const NormalBox = ({ box }: { box: Box }) => {
 const TransientBox = ({ box }: { box: Box }) => {
   const { position } = box;
   const [getOffset] = useTransientAtom(offsetAtom);
-  const mesh = useRef<any>();
+  const mesh = useRef<Mesh>(null!);
   useFrame(() => {
     const offset = getOffset();
     mesh.current.position.x = position[0] + offset[0];
@@ -50,7 +51,7 @@ const TransientBox = ({ box }: { box: Box }) => {
   });
   return (
     <mesh position={[position[0], position[1], 0]} ref={mesh}>
-      <boxBufferGeometry attach="geometry" args={[0.2, 0.2, 0.2]} />
+      <boxGeometry attach="geometry" args={[0.2, 0.2, 0.2]} />
       <meshStandardMaterial attach="material" color="darkblue" />
     </mesh>
   );

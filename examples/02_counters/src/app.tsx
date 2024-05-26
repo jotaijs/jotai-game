@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAtom } from 'jotai/react';
 import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from 'jotai-game';
