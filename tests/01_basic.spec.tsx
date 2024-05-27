@@ -1,7 +1,10 @@
-import { fireEvent, render } from '@testing-library/react';
-import React, { useReducer } from 'react';
+import { afterEach, describe, it } from 'vitest';
+import { cleanup, fireEvent, render } from '@testing-library/react';
+import { useReducer } from 'react';
 import { atom } from 'jotai/vanilla';
-import { useTransientAtom } from '../src/index';
+import { useTransientAtom } from 'jotai-game';
+
+afterEach(cleanup);
 
 describe('useTransientAtom spec', () => {
   it('default value', async () => {

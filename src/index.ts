@@ -1,1 +1,1 @@
-export { useTransientAtom } from './useTransientAtom';
+export { useTransientAtom } from './useTransientAtom.js';
