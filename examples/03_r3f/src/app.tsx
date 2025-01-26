@@ -1,11 +1,22 @@
 /* eslint-disable react/no-unknown-property */
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 
 import { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import type { ThreeElements } from '@react-three/fiber';
 import type { Mesh } from 'three';
 import { useAtom, useSetAtom } from 'jotai/react';
 import { atom } from 'jotai/vanilla';
 import { useTransientAtom } from 'jotai-game';
+
+declare global {
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements extends ThreeElements {}
+    }
+  }
+}
 
 type Box = {
   id: number;
