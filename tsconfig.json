@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "jotai-game": ["./src/index.js"]
+      "jotai-game": ["./src/index.ts"]
     }
   },
   "exclude": ["dist", "examples"]
